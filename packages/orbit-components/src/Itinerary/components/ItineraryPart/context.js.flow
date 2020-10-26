@@ -1,0 +1,20 @@
+// @flow
+import * as React from "react";
+
+// // type SetStateAction<S> = S | ((prevState: S) => S);
+// // type Dispatch<A> = (value: A) => void;
+
+export type Context = {|
+  +index: 0,
+  +last: boolean,
+  +onExpand: Dispatch<SetStateAction<boolean>>,
+  +expanded: boolean,
+|};
+
+export type ProviderProps = {|
+  +children: React.Node,
+  +index: number,
+  +last: boolean,
+|};
+
+declare export var ItineraryProvider: React.ComponentType<ProviderProps>;

@@ -1,0 +1,52 @@
+// @flow
+
+/*
+  DOCUMENTATION: https://orbit.kiwi/components/itinerary/itinerarypart
+*/
+
+import * as React from "react";
+
+import type { Globals } from "../../../common/common.js.flow";
+import type { spaceAfter } from "../../../common/getSpacingToken";
+import typeof ItineraryPartDetailsType from "./ItineraryPartDetails";
+import typeof ItineraryPartPlaceType from "./ItineraryPartPlace";
+import typeof ItineraryPartStatusType from "./ItineraryPartStatus";
+
+export type Statuses = "warning" | "critical";
+
+export type Props = {|
+  ...Globals,
+  ...spaceAfter,
+  +status?: Statuses,
+  +label?: React.Node,
+  +children: React.Node,
+|};
+
+export type PartStatusProps = {|
+  +type: Statuses,
+  +label?: React.Node,
+  +children: React.Node,
+|};
+
+export type PartDetailsProps = {|
+  +summary: React.Node,
+  +duration: string,
+  +children: React.Node,
+|};
+
+export type PartLinedContentProps = {|
+  +children: React.Node,
+|};
+
+export type PartPlaceProps = {|
+  +date: string,
+  +time: string,
+  +name: string,
+  +designation: string,
+|};
+
+declare export default React.ComponentType<Props>;
+
+declare export var ItineraryPartDetails: ItineraryPartDetailsType;
+declare export var ItineraryPartPlace: ItineraryPartPlaceType;
+declare export var ItineraryPartStatus: ItineraryPartStatusType;

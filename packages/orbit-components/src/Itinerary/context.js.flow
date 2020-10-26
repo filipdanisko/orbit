@@ -1,0 +1,11 @@
+// @flow
+import * as React from "react";
+
+// type SetStateAction<S> = S | ((prevState: S) => S);
+// type Dispatch<A> = (value: A) => void;
+
+export type Context = {|
+  smth: null,
+|};
+
+declare export var ItineraryProvider: React.ComponentType<{| children: React.Node |}>;
