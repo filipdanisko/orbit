@@ -9,14 +9,15 @@ const dataTest = "test";
 
 const tokens = {
   none: "",
-  "xx-small": theme.orbit.spaceXXSmall,
-  "x-small": theme.orbit.spaceXSmall,
+  XXXsmall: theme.orbit.spaceXXXSmall,
+  XXsmall: theme.orbit.spaceXXSmall,
+  Xsmall: theme.orbit.spaceXSmall,
   small: theme.orbit.spaceSmall,
   medium: theme.orbit.spaceMedium,
   large: theme.orbit.spaceLarge,
-  "x-large": theme.orbit.spaceXLarge,
-  "xx-large": theme.orbit.spaceXLarge,
-  "xxx-large": theme.orbit.spaceXLarge,
+  Xlarge: theme.orbit.spaceXLarge,
+  XXlarge: theme.orbit.spaceXXLarge,
+  XXXlarge: theme.orbit.spaceXXXLarge,
 };
 
 const Elements = () => (
@@ -36,9 +37,9 @@ describe("#Inline", () => {
       </Inline>,
     );
     expect(screen.getByTestId(dataTest)).toBeInTheDocument();
-    const styles = getComputedStyle(screen.getByTestId(dataTest));
-    expect(styles).toHaveProperty("justify-content", "center");
-    expect(styles).toHaveProperty("align-items", "start");
+    const styles = screen.getByTestId(dataTest);
+    expect(styles).toHaveStyle({ alignItems: "center" });
+    expect(styles).toHaveStyle({ justifyContent: "flex-start" });
   });
 
   it("should have spacings", () => {
@@ -51,49 +52,38 @@ describe("#Inline", () => {
       </Inline>
     ));
 
-    expect(getComputedStyle(render(spacings[0]).getByTestId("none"))).toHaveProperty(
-      "margin-left",
-      "",
-    );
+    expect(render(spacings[0]).getByTestId("none")).toHaveStyle({
+      marginLeft: "",
+    });
 
-    expect(getComputedStyle(render(spacings[1]).getByTestId("xx-small"))).toHaveProperty(
-      "margin-left",
-      tokens["xx-small"],
-    );
+    expect(render(spacings[1]).getByTestId("XXXsmall")).toHaveStyle({
+      marginLeft: tokens.XXXsmall,
+    });
 
-    expect(getComputedStyle(render(spacings[2]).getByTestId("x-small"))).toHaveProperty(
-      "margin-left",
-      tokens["x-small"],
-    );
+    expect(render(spacings[2]).getByTestId("XXsmall")).toHaveStyle({
+      marginLeft: tokens.XXsmall,
+    });
 
-    expect(getComputedStyle(render(spacings[3]).getByTestId("small"))).toHaveProperty(
-      "margin-left",
-      tokens.small,
-    );
+    expect(render(spacings[3]).getByTestId("Xsmall")).toHaveStyle({
+      marginLeft: tokens.Xsmall,
+    });
 
-    expect(getComputedStyle(render(spacings[4]).getByTestId("medium"))).toHaveProperty(
-      "margin-left",
-      tokens.medium,
-    );
+    expect(render(spacings[4]).getByTestId("small")).toHaveStyle({ marginLeft: tokens.small });
 
-    expect(getComputedStyle(render(spacings[5]).getByTestId("large"))).toHaveProperty(
-      "margin-left",
-      tokens.large,
-    );
+    expect(render(spacings[5]).getByTestId("medium")).toHaveStyle({ marginLeft: tokens.medium });
 
-    expect(getComputedStyle(render(spacings[6]).getByTestId("x-large"))).toHaveProperty(
-      "margin-left",
-      tokens["x-large"],
-    );
+    expect(render(spacings[6]).getByTestId("large")).toHaveStyle({ marginLeft: tokens.large });
 
-    expect(getComputedStyle(render(spacings[7]).getByTestId("xx-large"))).toHaveProperty(
-      "margin-left",
-      tokens["xx-large"],
-    );
+    expect(render(spacings[7]).getByTestId("Xlarge")).toHaveStyle({
+      marginLeft: tokens.Xlarge,
+    });
 
-    expect(getComputedStyle(render(spacings[8]).getByTestId("xxx-large"))).toHaveProperty(
-      "margin-left",
-      tokens["xxx-large"],
-    );
+    expect(render(spacings[8]).getByTestId("XXlarge")).toHaveStyle({
+      marginLeft: tokens.XXlarge,
+    });
+
+    expect(render(spacings[9]).getByTestId("XXXlarge")).toHaveStyle({
+      marginLeft: tokens.XXXlarge,
+    });
   });
 });

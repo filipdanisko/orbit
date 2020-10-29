@@ -7,14 +7,15 @@ import * as Common from "../common/common";
 
 export type SpacingToken =
   | "none"
-  | "xx-small"
-  | "x-small"
+  | "XXXsmall"
+  | "XXsmall"
+  | "Xsmall"
   | "small"
   | "medium"
   | "large"
-  | "x-large"
-  | "xx-large"
-  | "xxx-large";
+  | "Xlarge"
+  | "XXlarge"
+  | "XXXlarge";
 
 interface MediaQuery {
   readonly spacing?: SpacingToken;
